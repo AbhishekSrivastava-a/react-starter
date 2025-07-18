@@ -1,28 +1,26 @@
-import Accordion from './components/Accordion';
+import Sidebar from './components/Sidebar';
+import Route from './components/Route';
+import AccordionPage from './pages/AccordionPage';
+import DropdownPage from './pages/DropdownPage';
+import ButtonPage from './pages/ButtonPage';
 
 function App() {
-  const items = [
-    {
-      id: 'l2kj5',
-      label: 'Can I use React on a project?',
-      content:
-        'You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.',
-    },
-    {
-      id: 'lk2j35lkj',
-      label: 'Can I use Javascript on a project?',
-      content:
-        'You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.',
-    },
-    {
-      id: 'l1kj2i0g',
-      label: 'Can I use CSS on a project?',
-      content:
-        'You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.',
-    },
-  ];
-
-  return <Accordion items={items} />;
+  return (
+    <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+      <Sidebar />
+      <div className="col-span-5">
+        <Route path="/accordion">
+          <AccordionPage />
+        </Route>
+        <Route path="/">
+          <DropdownPage />
+        </Route>
+        <Route path="/buttons">
+          <ButtonPage />
+        </Route>
+      </div>
+    </div>
+  );
 }
 
 export default App;
